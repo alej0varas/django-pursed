@@ -1,2 +1,7 @@
 *.pyc
 db/
+*.egg-info
+*~
+/dist
+/build
+/README.html
