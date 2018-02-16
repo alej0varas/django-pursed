@@ -19,7 +19,7 @@ class Wallet(models.Model):
     # this would still work out of the box.
     #
     # See 'Referencing the User model' [1]
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     # This stores the wallet's current balance. Also acts
     # like a cache to the wallet's balance as well.
@@ -75,7 +75,7 @@ class Wallet(models.Model):
 
 class Transaction(models.Model):
     # The wallet that holds this transaction.
-    wallet = models.ForeignKey(Wallet)
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
 
     # The value of this transaction.
     value = CURRENCY_STORE_FIELD(default=0)
