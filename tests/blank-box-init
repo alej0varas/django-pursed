@@ -1,0 +1,13 @@
+#!/bin/bash
+set -x
+sudo apt-get update
+sudo apt-get -y install postgresql-9.5
+sudo apt-get -y install postgresql-contrib-9.5
+# sudo su -c 'createuser -s postgres' postgres
+sudo sed -ibk \
+    -re "s/[#]*listen_addresses = '.*'(.*)/listen_addresses = '*'\1/" \
+    /etc/postgresql/9.5/main/postgresql.conf
+echo "host    all   postgres   10.0.2.2/32  trust" | sudo tee -a /etc/postgresql/9.5/main/pg_hba.conf
+sudo service postgresql restart
+su -c 'createdb travis_ci_test' postgres
+# end

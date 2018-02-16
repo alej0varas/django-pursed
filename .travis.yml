@@ -1,0 +1,15 @@
+sudo: false
+language: python
+script: tox
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+install: pip install tox-travis
+services:
+  - postgresql
+addons:
+  postgresql: "9.5"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres

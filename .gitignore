@@ -5,3 +5,7 @@ db/
 /dist
 /build
 /README.html
+/demop
+/.tox
+/tests/.vagrant/
+/tests/ubuntu-xenial-16.04-cloudimg-console.log

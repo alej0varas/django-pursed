@@ -95,3 +95,19 @@ You can change this to decimal by adding this to your settings.py:
    CURRENCY_STORE_FIELD = models.DecimalField(max_digits=10, decimal_places=2)
 
 You need to run `./manage.py makemigrations` after that.
+
+Testing
+=======
+
+Install libpq-dev and vagrant
+
+Install requirements
+$ pip install -r requirements.txt-dev
+
+Run database
+$ cd tests
+$ Vagrant up
+$ cd ..
+
+Run test
+$ ./runtests.py
